@@ -1,0 +1,58 @@
+/* contains common stylining
+will be applied on layout.ejs file */
+
+.easily-intro{
+    font-size: 1.5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#easily-tagline{
+    font-size: 5rem;
+    font-family: cursive;
+}
+
+#easily-tagline span{
+    font-size: 1.2em;
+    padding: 0 5%;
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+}
+
+.modal-imgs{
+    height: 5rem;
+    width: 5rem;
+}
+
+.modal-radio-btn + label{
+    transition: all 0.5s;
+}
+
+.modal-radio-btn:checked + label{
+    box-shadow: 0px 0px 10px blue;
+}
+
+/* background animation */
+body {
+  margin: 0px;
+  overflow: hidden;
+  animation: color-loop 18s infinite;
+}
+
+@keyframes color-loop {
+  0% {
+    background: #2CAB5B;
+  }
+  25% {
+    background: #FABC03;
+  }
+  50% {
+    background: #ED4B40;
+  }
+  75% {
+    background: #768eb6;
+  }
+  100% {
+    background: #2CAB5B;
+  }
+}

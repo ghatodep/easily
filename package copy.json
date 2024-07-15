@@ -1,0 +1,34 @@
+{
+  "name": "easily",
+  "version": "1.0.0",
+  "description": "easily - job portal web application for job seekers and recruiters.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "nodemon ./server.js",
+    "easily": "node ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghetodep/easily.git"
+  },
+  "keywords": [
+    "nodejs",
+    "expressjs",
+    "mvc",
+    "easily",
+    "job-portal"
+  ],
+  "author": "Pushpak Ghatode (ghatodep@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ghetodep/easily/issues"
+  },
+  "homepage": "https://github.com/ghetodep/easily#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-ejs-layouts": "^2.5.1",
+    "nodemon": "^3.1.4"
+  }
+}

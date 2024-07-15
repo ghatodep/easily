@@ -1,0 +1,95 @@
+<div class="d-flex flex-column justify-content-center align-items-start p-5">
+  <p class="easily-intro align-self-start">
+    Need a new talent to get your work done ?
+  </p>
+  <p class="easily-intro align-self-center">
+    Unemployed or not happy with current job ?
+  </p>
+  <div class="conatiner mt-3" id="easily-tagline">
+    <span>easily</span> is here to make your life easier !
+  </div>
+  <!-- Button trigger modal -->
+  <button
+    type="button"
+    class="btn btn-dark mt-5"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal"
+  >
+    Let's get started
+  </button>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-dark">
+        <h1 class="modal-title fs-5 text-light" id="exampleModalLabel">
+          I am a ...
+        </h1>
+      </div>
+      <div class="modal-body">
+        <form action="/home" method="post">
+          <div
+            class="conatiner d-flex justify-content-around align-items-center"
+          >
+            <div class="form-check">
+              <input
+                class="form-check-input modal-radio-btn"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+                checked
+                style="display: none"
+              />
+              <label class="form-check-label rounded" for="flexRadioDefault1">
+                <div class="card" data-bs-theme="dark" style="width: 10rem">
+                  <img
+                    src="./statics/job-seeker-icon.png"
+                    class="card-img-top .modal-imgs img-thumbnail"
+                    alt="job-seeker-img"
+                  />
+                  <div class="card-body">
+                    <p class="card-text fw-bold">Job Seeker</p>
+                  </div>
+                </div>
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input modal-radio-btn"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault2"
+                style="display: none"
+              />
+              <label class="form-check-label rounded" for="flexRadioDefault2">
+                <div class="card" data-bs-theme="dark" style="width: 10rem">
+                  <img
+                    src="./statics/recruiter-icon.png"
+                    class="card-img-top .modal-imgs img-thumbnail"
+                    alt="job-seeker-img"
+                  />
+                  <div class="card-body">
+                    <p class="card-text fw-bold">Recruiter</p>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer bg-dark">
+        <button type="button" class="btn btn-light mx-auto">
+          Explore easily
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
