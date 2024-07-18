@@ -1,6 +1,15 @@
 /* contains common stylining
 will be applied on layout.ejs file */
 
+#app-title{
+  font-family: cursive;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+}
+
 .easily-intro{
     font-size: 1.5rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -29,13 +38,12 @@ will be applied on layout.ejs file */
 }
 
 .modal-radio-btn:checked + label{
-    box-shadow: 0px 0px 10px blue;
+    box-shadow: 0px 0px 20px red;
 }
 
 /* background animation */
 body {
   margin: 0px;
-  overflow: hidden;
   animation: color-loop 18s infinite;
 }
 
@@ -55,4 +63,22 @@ body {
   100% {
     background: #2CAB5B;
   }
+}
+
+.jobs-card{
+  width: 20vw;
+  min-width: 300px;
+}
+
+.skill-pill{
+  font-size: 0.6rem;
+}
+
+.skill-pill:hover{
+  color: black;
+  background-color: white;
+}
+
+.job-details:hover{
+  transform: translateY(-5%);
 }

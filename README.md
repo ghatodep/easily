@@ -20,3 +20,9 @@ create a landing page using bootstrap. different for both job seeker and recruit
 Added home.html and main.css files.
 hosting public directory using - express.static()
 creating setup for ejs setup and rendering home.html as (layout.ejs and home-landing.ejs)
+
+## step - 4
+
+create job model and job controller to manage job data.
+files created -> JobModel, JobController, GeneralController,
+create jobs.ejs to display all dummy job openings in the job model

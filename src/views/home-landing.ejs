@@ -34,8 +34,8 @@
           I am a ...
         </h1>
       </div>
-      <div class="modal-body">
-        <form action="/home" method="post">
+      <form action="/home" method="post">
+        <div class="modal-body">
           <div
             class="conatiner d-flex justify-content-around align-items-center"
           >
@@ -43,10 +43,11 @@
               <input
                 class="form-check-input modal-radio-btn"
                 type="radio"
-                name="flexRadioDefault"
+                name="radioInput"
                 id="flexRadioDefault1"
                 checked
                 style="display: none"
+                value="job-seeker"
               />
               <label class="form-check-label rounded" for="flexRadioDefault1">
                 <div class="card" data-bs-theme="dark" style="width: 10rem">
@@ -65,9 +66,10 @@
               <input
                 class="form-check-input modal-radio-btn"
                 type="radio"
-                name="flexRadioDefault"
+                name="radioInput"
                 id="flexRadioDefault2"
                 style="display: none"
+                value="recruiter"
               />
               <label class="form-check-label rounded" for="flexRadioDefault2">
                 <div class="card" data-bs-theme="dark" style="width: 10rem">
@@ -83,13 +85,13 @@
               </label>
             </div>
           </div>
-        </form>
-      </div>
-      <div class="modal-footer bg-dark">
-        <button type="button" class="btn btn-light mx-auto">
-          Explore easily
-        </button>
-      </div>
+        </div>
+        <div class="modal-footer bg-dark">
+          <button type="submit" class="btn btn-light mx-auto fw-bolder">
+            Explore easily
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

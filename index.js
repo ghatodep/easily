@@ -1,10 +1,37 @@
 // importing external libraries
 import express from "express";
+import path from "path";
+import ejsLayouts from "express-ejs-layouts";
+
+// importing internal modules - controllers
+import GeneralController from "./src/controllers/general.controller.js";
+import JobController from "./src/controllers/job.controller.js";
 
 // creating a server
 export const server = express();
 
-server.get("/", (req, res) => {
-  console.log("Welcome to Easily !");
-  res.send("Hello World !");
-});
+// creating instances of imported class modules
+const generalController = new GeneralController();
+const jobController = new JobController();
+
+// setting up ejs layouts paths and view engine
+server.set("view engine", "ejs");
+server.set("views", path.join(path.resolve(), "src", "views"));
+
+// application level middleware for processing form data using urlencoded parser
+server.use(express.urlencoded({ extended: true }));
+
+// application level middleware processing views
+server.use(ejsLayouts);
+
+// application level middleware to host public files directly
+server.use(express.static(path.resolve("public")));
+
+// default route of the application
+server.get("/", generalController.rootHomeRender);
+
+// post request for user specific home page
+server.post("/home", generalController.rootHomePost);
+
+// render all jobs on the display
+server.get("/jobs", jobController.displayJobPosts);
