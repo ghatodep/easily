@@ -26,3 +26,9 @@ creating setup for ejs setup and rendering home.html as (layout.ejs and home-lan
 create job model and job controller to manage job data.
 files created -> JobModel, JobController, GeneralController,
 create jobs.ejs to display all dummy job openings in the job model
+
+## step 5
+
+create a page to display detailed job notification with all the necessary buttons.
+Add relevant routes in the index.js
+Ensure proper control methods to handle all the routes.

@@ -32,6 +32,14 @@ export default class JobModel {
   static getAllJobs() {
     return jobs;
   }
+
+  static getJobById(_id) {
+    return jobs.find((job) => {
+      if (job.id == Number(_id)) {
+        return job;
+      }
+    });
+  }
 }
 
 let date = new Date();

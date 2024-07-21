@@ -14,6 +14,9 @@ export const server = express();
 const generalController = new GeneralController();
 const jobController = new JobController();
 
+// application level middleware to host public files directly
+server.use(express.static(path.resolve("public")));
+
 // setting up ejs layouts paths and view engine
 server.set("view engine", "ejs");
 server.set("views", path.join(path.resolve(), "src", "views"));
@@ -24,9 +27,6 @@ server.use(express.urlencoded({ extended: true }));
 // application level middleware processing views
 server.use(ejsLayouts);
 
-// application level middleware to host public files directly
-server.use(express.static(path.resolve("public")));
-
 // default route of the application
 server.get("/", generalController.rootHomeRender);
 
@@ -35,3 +35,15 @@ server.post("/home", generalController.rootHomePost);
 
 // render all jobs on the display
 server.get("/jobs", jobController.displayJobPosts);
+
+// render details of a job by id
+server.post("/jobs", jobController.displayJobDetails);
+
+// render form to apply to a job
+server.post("/apply", jobController.displayApplicationForm);
+
+// render form to update the job posting
+server.post("/updatePost", jobController.displayUpdateJobForm);
+
+// render form to update the job posting
+server.post("/deletePost", jobController.deleteJobPost);

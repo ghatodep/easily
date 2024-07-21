@@ -1,0 +1,243 @@
+<div>
+  <h1 class="modal-title fs-5" id="applicationFormLabel">
+    Job Application for
+    <span class="text-warning"><%= locals.jobDetails.designation %></span>
+    at
+    <span class="text-primary"><%= locals.jobDetails.compName %></span>
+  </h1>
+</div>
+
+<!-- form element -->
+<form action="/apply" method="post" enctype="multipart/form-data">
+  <div">
+    <div>
+      <div class="fw-bolder fs-5 my-1 text-center">
+        <i class="fa-regular fa-id-badge m-2"></i>Personal Details
+      </div>
+      <div class="border rounded bg-dark text-light p-3">
+        <div class="row mb-3">
+          <label for="applicantName" class="col-sm-4 col-form-label"
+            >Name</label
+          >
+          <div class="col-sm-8">
+            <input
+              type="text"
+              class="form-control"
+              id="applicantName"
+              name="applicantName"
+              required
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="applicantEmail" class="col-sm-4 col-form-label"
+            >Email</label
+          >
+          <div class="col-sm-8">
+            <input
+              type="email"
+              class="form-control"
+              id="applicantEmail"
+              name="applicantEmail"
+              required
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="applicantPhNum" class="col-sm-4 col-form-label"
+            >Phone Number</label
+          >
+          <div class="col-sm-8">
+            <input
+              type="tel"
+              class="form-control"
+              id="applicantPhNum"
+              name="applicantPhNum"
+              required
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="applicantCity" class="col-sm-4 col-form-label"
+            >City</label
+          >
+          <div class="col-sm-8">
+            <input
+              type="text"
+              class="form-control"
+              id="applicantCity"
+              name="applicantCity"
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="applicantDob" class="col-sm-4 col-form-label"
+            >Date Of Birth</label
+          >
+          <div class="col-sm-8">
+            <input
+              type="date"
+              class="form-control"
+              id="applicantDob"
+              name="applicantDob"
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="applicantDob" class="col-sm-4 col-form-label"
+            >Gender</label
+          >
+          <div class="col-sm-8">
+            <input
+              type="radio"
+              id="applicantGenderMale"
+              name="applicantGender"
+              value="MALE"
+            />
+            <label for="applicantGenderMale">Male</label>
+            <input
+              type="radio"
+              id="applicantGenderFemale"
+              name="applicantGender"
+              value="FEMALE"
+              class="ms-3"
+            />
+            <label for="applicantGenderFemale">Female</label>
+            <input
+              type="radio"
+              id="applicantGenderOther"
+              name="applicantGender"
+              value="OTHER"
+              class="ms-3"
+            />
+            <label for="applicantGenderOther">Other</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="fw-bolder fs-5 my-1 text-center">
+        <i class="fa-solid fa-user-graduate m-2"></i>Education Details
+      </div>
+      <div class="row mb-3">
+        <label for="applicantEducationLevel" class="col-sm-4 col-form-label"
+          >Highest Education Level</label
+        >
+        <div class="col-sm-8">
+          <input
+            type="text"
+            class="form-control"
+            id="applicantEducationLevel"
+            name="applicantEducationLevel"
+            required
+          />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="applicantMarks" class="col-sm-4 col-form-label"
+          >Marks Obtained</label
+        >
+        <div class="col-sm-8">
+          <input
+            type="Number"
+            class="form-control"
+            id="applicantMarks"
+            name="applicantMarks"
+            required
+          />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="applicantEduDet" class="col-sm-4 col-form-label"
+          >More about your Education</label
+        >
+        <div class="col-sm-8">
+          <textarea
+            class="form-control"
+            id="applicantEduDet"
+            name="applicantEduDet"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="fw-bolder fs-5 my-1 text-center">
+        <i class="fa-solid fa-gears m-2"></i>Experience Details
+      </div>
+      <div class="row mb-3">
+        <label for="applicantExpDur" class="col-sm-4 col-form-label"
+          >Experience in number of months</label
+        >
+        <div class="col-sm-8">
+          <input
+            type="Number"
+            class="form-control"
+            id="applicantExpDur"
+            name="applicantExpDur"
+            placeholder="0"
+            required
+          />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="applicantExpCompName" class="col-sm-4 col-form-label"
+          >Company Name</label
+        >
+        <div class="col-sm-8">
+          <input
+            type="text"
+            class="form-control"
+            id="applicantExpCompName"
+            name="applicantExpCompName"
+          />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="applicantExpDes" class="col-sm-4 col-form-label"
+          >Designation</label
+        >
+        <div class="col-sm-8">
+          <input
+            type="text"
+            class="form-control"
+            id="applicantExpDes"
+            name="applicantExpDes"
+          />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="applicantExpDet" class="col-sm-4 col-form-label"
+          >More about Experience</label
+        >
+        <div class="col-sm-8">
+          <textarea
+            class="form-control"
+            id="applicantExpDet"
+            name="applicantExpDet"
+          ></textarea>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label
+          for="applicantResume"
+          class="col-sm-4 col-form-label fw-bolder fs-5 my-1"
+        >
+          <i class="fa-solid fa-paperclip mx-2"></i>Upload Your Resume</label
+        >
+        <div class="col-sm-10">
+          <input
+            type="file"
+            accept="application/pdf"
+            class="form-control"
+            id="applicantResume"
+            name="applicantResume"
+            required
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- submit form button to open a model with alert weather to really submit or not -->
+   <button>Submit</button>
+</form>

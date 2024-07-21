@@ -1,0 +1,120 @@
+<div class="container bg-black text-light border rounded m-3 px-4 py-3">
+  <!-- Job Details Header Section -->
+  <div class="d-flex justify-content-between align-items-start">
+    <div class="border rounded-pill px-3 py-2 d-inline-block mx-1">
+      <div
+        class="bg-success d-inline-block rounded-circle"
+        style="height: 10px; width: 10px"
+      ></div>
+      Active
+    </div>
+    <div class="d-inline-block">
+      <div class="d-inline-block mx-3 border p-1 border-top-0 border-start-0">
+        Posted Date
+        <div class="text-success">
+          <%= (new Date(locals.jobDetails.postedDate)).toDateString() %>
+        </div>
+      </div>
+      <div class="d-inline-block mx-3 p-1 border border-top-0 border-start-0">
+        Closing Date
+        <div class="text-danger">
+          <%= (new Date(locals.jobDetails.closingDate)).toDateString() %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="job-details-header">
+    <div>
+      <span class="text-warning"><%= locals.jobDetails.designation %></span>
+      Job Opportunity at
+      <span class="text-primary"><%= locals.jobDetails.compName %></span>
+    </div>
+    <hr />
+  </div>
+
+  <!-- Job Details Body Table -->
+  <table>
+    <tr>
+      <td class="px-3 py-1">
+        <h3><%= jobDetails.compName %></h3>
+      </td>
+      <td class="px-3 py-1">
+        <i class="fa-solid fa-location-dot text-danger"></i>
+        <%= jobDetails.location %>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-3 py-1">Enumeration</td>
+      <td class="px-3 py-1">
+        <div>
+          <i class="fa-solid fa-indian-rupee-sign"></i>
+          <%= jobDetails.packageLimit %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-3 py-1">Skills</td>
+      <td class="d-flex p-2 flex-wrap">
+        <% jobDetails.skillRequired.forEach((skill)=>{ %>
+        <div
+          class="m-1 px-2 py-1 border rounded-pill skill-pill"
+          style="font-size: 0.8rem"
+        >
+          <%= skill %>
+        </div>
+        <%})%>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-3 py-1">vacancy</td>
+      <td class="px-3 py-1">
+        <i class="fa-solid fa-signal mx-3"></i><%= jobDetails.vacancy %>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-3 py-1">Applicants Applied</td>
+      <td class="px-3 py-1">
+        <i class="fa-solid fa-users mx-3"></i><%=
+        jobDetails.applicantList.length %>
+      </td>
+    </tr>
+  </table>
+
+  <!-- job details buttons -->
+  <div class="container d-flex justify-content-around my-3">
+    <form action="/apply" method="post">
+      <input
+        type="text"
+        value="<%= locals.jobDetails.id %>"
+        hidden
+        name="jobId"
+      />
+      <button class="btn btn-primary" type="submit">
+        <i class="fa-solid fa-user-pen mx-2"></i> Apply
+      </button>
+    </form>
+    <form action="/updatePost" method="post">
+      <input
+        type="text"
+        value="<%= locals.jobDetails.id %>"
+        hidden
+        name="jobId"
+      />
+      <button class="btn btn-primary" type="submit">
+        <i class="fa-solid fa-pen-to-square mx-2"></i>Update Post
+      </button>
+    </form>
+    <form action="/deletePost" method="post">
+      <input
+        type="text"
+        value="<%= locals.jobDetails.id %>"
+        hidden
+        name="jobId"
+      />
+      <button class="btn btn-primary" type="submit">
+        <i class="fa-solid fa-trash mx-2"></i> Delete Post
+      </button>
+    </form>
+  </div>
+</div>

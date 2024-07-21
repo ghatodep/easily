@@ -28,11 +28,15 @@
         </div>
         <%})%>
       </div>
-      <a
-        href="/jobs/:<%= job.id%>"
-        class="btn btn-info mt-2 py-1 px-2 mx-auto d-block job-details"
-        >More Details</a
-      >
+      <form action="/jobs" method="post">
+        <input type="text" value="<%= job.id %>" hidden name="jobId" />
+        <button
+          class="btn btn-info mt-2 py-1 px-2 mx-auto d-block job-details"
+          type="submit"
+        >
+          More Details
+        </button>
+      </form>
     </div>
   </div>
   <%})%>
