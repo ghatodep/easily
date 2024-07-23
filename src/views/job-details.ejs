@@ -54,7 +54,7 @@
       </td>
     </tr>
     <tr>
-      <td class="px-3 py-1">Skills</td>
+      <td class="px-3 py-1">Skill Tags</td>
       <td class="d-flex p-2 flex-wrap">
         <% jobDetails.skillRequired.forEach((skill)=>{ %>
         <div
@@ -94,7 +94,7 @@
         <i class="fa-solid fa-user-pen mx-2"></i> Apply
       </button>
     </form>
-    <form action="/updatePost" method="post">
+    <form action="/updateJobPostForm" method="post">
       <input
         type="text"
         value="<%= locals.jobDetails.id %>"

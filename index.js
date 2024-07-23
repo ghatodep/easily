@@ -7,6 +7,9 @@ import ejsLayouts from "express-ejs-layouts";
 import GeneralController from "./src/controllers/general.controller.js";
 import JobController from "./src/controllers/job.controller.js";
 
+// importing internal modules - middlewares
+import uploadFile from "./src/middlewares/uploadFile.middleware.js";
+
 // creating a server
 export const server = express();
 
@@ -43,7 +46,17 @@ server.post("/jobs", jobController.displayJobDetails);
 server.post("/apply", jobController.displayApplicationForm);
 
 // render form to update the job posting
-server.post("/updatePost", jobController.displayUpdateJobForm);
+server.post("/updateJobPostForm", jobController.displayUpdateJobForm);
+
+// update job details as per details submitted by user through update job post form
+server.post("/updateJobPost", jobController.updateJobPost);
 
 // render form to update the job posting
 server.post("/deletePost", jobController.deleteJobPost);
+
+// receiving the submitted application form and processing it
+server.post(
+  "/formSubmit",
+  uploadFile.single("applicantResume"),
+  jobController.processApplicationFormData
+);

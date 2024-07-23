@@ -32,3 +32,9 @@ create jobs.ejs to display all dummy job openings in the job model
 create a page to display detailed job notification with all the necessary buttons.
 Add relevant routes in the index.js
 Ensure proper control methods to handle all the routes.
+
+## step6
+
+functionality to apply for a post. configuring multer library for parsing multipart form data
+functionality to update the post.
+functionality to delete the post.

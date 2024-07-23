@@ -15,7 +15,7 @@ export default class JobModel {
     this.compName = _compName;
     this.domain = _domain;
     this.designation = _designation;
-    this.packageLimit = _packageLimit + "LPA";
+    this.packageLimit = Number(_packageLimit);
     this.location = _location;
     this.skillRequired = _skillRequired;
     this.vacancy = _vacancy;
@@ -40,6 +40,60 @@ export default class JobModel {
       }
     });
   }
+
+  static addApplicantId(jobId, ApplicantId) {
+    let jobIndex = jobs.findIndex((job) => {
+      if (job.id == Number(jobId)) {
+        return job;
+      }
+    });
+    if (jobIndex != -1) {
+      jobs[jobIndex]["applicantList"].push(ApplicantId);
+    }
+  }
+
+  static deleteJobById(jobId) {
+    let jobIndex = jobs.findIndex((job) => {
+      if (job.id == Number(jobId)) {
+        return job;
+      }
+    });
+    if (jobIndex != -1) {
+      jobs.splice(jobIndex, 1);
+    }
+    return jobIndex;
+  }
+
+  static updateJobDetails(newData) {
+    const {
+      jobId,
+      compName,
+      domain,
+      designation,
+      packageLimit,
+      location,
+      skillRequired,
+      vacancy,
+      closingDate,
+    } = newData;
+
+    let jobIndex = jobs.findIndex((job) => {
+      return job.id == Number(jobId);
+    });
+
+    if (jobIndex != -1) {
+      jobs[jobIndex]["compName"] = compName;
+      jobs[jobIndex]["domain"] = domain;
+      jobs[jobIndex]["designation"] = designation;
+      jobs[jobIndex]["packageLimit"] = packageLimit;
+      jobs[jobIndex]["location"] = location;
+      jobs[jobIndex]["skillRequired"] = skillRequired;
+      jobs[jobIndex]["vacancy"] = vacancy;
+      jobs[jobIndex]["closingDate"] = closingDate;
+    }
+
+    return jobIndex;
+  }
 }
 
 let date = new Date();
@@ -50,7 +104,7 @@ var jobs = [
     "Amazon-India",
     "Technology",
     "Software Engineer",
-    "10-15",
+    "10",
     "Pune-Hinjewadi",
     ["Prograaming", "Problem Solving", "Python", "OOPs"],
     5,
@@ -62,7 +116,7 @@ var jobs = [
     "Qualcomm India",
     "Technology",
     "VLSI Engineer",
-    "5-7",
+    "5",
     "Hyderabad",
     [
       "Prograaming",
@@ -98,7 +152,7 @@ var jobs = [
     "L&T Ltd",
     "Human Resource",
     "Site Manager",
-    "3.5-5",
+    "5",
     "Nagpur",
     ["Communication", "Problem Solving", "Operations", "Management"],
     1,

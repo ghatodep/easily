@@ -1,0 +1,23 @@
+<div class="container bg-dark text-light rounded m-4 p-3">
+  <h1 class="modal-title fs-3 text-center" id="applicationFormLabel">
+    Update Job Opening Post for
+    <span class="text-warning"><%= locals.jobDetails.designation %></span>
+    at
+    <span class="text-primary"><%= locals.jobDetails.compName %></span>
+  </h1>
+  <div class="fs-5 fw-semibold text-center m-4">
+    <% if(status!=-1){ %>
+    <div class="alert alert-success" role="alert">
+      Job details have been successfully updated !
+    </div>
+    <%}else{%>
+    <div class="alert alert-danger m-4" role="alert">
+      Sorry! There was a issue during the process please apply again after some
+      time.
+    </div>
+    <%}%>
+  </div>
+  <div class="d-flex justify-content-center">
+    <a class="btn btn-primary btn-lg" href="/">Redirect to Home Page</a>
+  </div>
+</div>

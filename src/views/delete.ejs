@@ -1,0 +1,16 @@
+<div class="container bg-dark text-light rounded m-4 p-3">
+  <div>
+    <div class="fs-5 fw-semibold text-center">
+      <% if(status!=-1){ %>
+      <div class="alert alert-success" role="alert">Deletion Successful!</div>
+      <%}else{%>
+      <div class="alert alert-danger" role="alert">
+        There was some error while deletion. Please try again!
+      </div>
+      <%}%>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <a class="btn btn-primary btn-lg" href="/">Redirect to Home Page</a>
+  </div>
+</div>
