@@ -27,14 +27,18 @@ create job model and job controller to manage job data.
 files created -> JobModel, JobController, GeneralController,
 create jobs.ejs to display all dummy job openings in the job model
 
-## step 5
+## step - 5
 
 create a page to display detailed job notification with all the necessary buttons.
 Add relevant routes in the index.js
 Ensure proper control methods to handle all the routes.
 
-## step6
+## step - 6
 
 functionality to apply for a post. configuring multer library for parsing multipart form data
 functionality to update the post.
 functionality to delete the post.
+
+## step - 7
+
+functionality to send a automated email response to applicants when they apply for a job post.

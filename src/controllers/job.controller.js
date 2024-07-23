@@ -1,5 +1,6 @@
 import JobModel from "../models/job.model.js";
 import ApplicantModel from "../models/applicants.model.js";
+import { sendEmail } from "./email.controller.js";
 
 export default class JobController {
   constructor() {
@@ -67,8 +68,19 @@ export default class JobController {
       request.file.path,
       request.body.jobId
     );
-    JobModel.addApplicantId(request.body.jobId, applicantId);
     let jobDetails = JobModel.getJobById(request.body.jobId);
+
+    if (applicantId) {
+      JobModel.addApplicantId(request.body.jobId, applicantId);
+      // sending email
+      sendEmail(
+        applicantId,
+        request.body.applicantName,
+        request.body.applicantEmail,
+        jobDetails
+      );
+    }
+    // rendering response
     response.render("applicationReceived", {
       jobDetails: jobDetails,
       usertype: null,

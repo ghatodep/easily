@@ -45,6 +45,13 @@ server.post("/jobs", jobController.displayJobDetails);
 // render form to apply to a job
 server.post("/apply", jobController.displayApplicationForm);
 
+// receiving the submitted application form and processing it
+server.post(
+  "/formSubmit",
+  uploadFile.single("applicantResume"),
+  jobController.processApplicationFormData
+);
+
 // render form to update the job posting
 server.post("/updateJobPostForm", jobController.displayUpdateJobForm);
 
@@ -53,10 +60,3 @@ server.post("/updateJobPost", jobController.updateJobPost);
 
 // render form to update the job posting
 server.post("/deletePost", jobController.deleteJobPost);
-
-// receiving the submitted application form and processing it
-server.post(
-  "/formSubmit",
-  uploadFile.single("applicantResume"),
-  jobController.processApplicationFormData
-);
