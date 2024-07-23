@@ -9,6 +9,10 @@ import JobController from "./src/controllers/job.controller.js";
 
 // importing internal modules - middlewares
 import uploadFile from "./src/middlewares/uploadFile.middleware.js";
+import {
+  sessionMiddleware,
+  authorize,
+} from "./src/middlewares/authentication.middleware.js";
 
 // creating a server
 export const server = express();
@@ -19,6 +23,9 @@ const jobController = new JobController();
 
 // application level middleware to host public files directly
 server.use(express.static(path.resolve("public")));
+
+// application level middleware for session management
+server.use(sessionMiddleware);
 
 // setting up ejs layouts paths and view engine
 server.set("view engine", "ejs");
@@ -53,10 +60,14 @@ server.post(
 );
 
 // render form to update the job posting
-server.post("/updateJobPostForm", jobController.displayUpdateJobForm);
+server.post(
+  "/updateJobPostForm",
+  authorize,
+  jobController.displayUpdateJobForm
+);
 
 // update job details as per details submitted by user through update job post form
-server.post("/updateJobPost", jobController.updateJobPost);
+server.post("/updateJobPost", authorize, jobController.updateJobPost);
 
 // render form to update the job posting
-server.post("/deletePost", jobController.deleteJobPost);
+server.post("/deletePost", authorize, jobController.deleteJobPost);

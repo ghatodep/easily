@@ -42,3 +42,9 @@ functionality to delete the post.
 ## step - 7
 
 functionality to send a automated email response to applicants when they apply for a job post.
+
+## step - 8
+
+session configuration for job seeker and recruiter.
+login as recruiter tab on job seeker nav panel.
+conditional buttons on detailed job post information page.

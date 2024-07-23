@@ -65,6 +65,11 @@ body {
   }
 }
 
+/* for navigation buttons hovering effect */
+li a:hover{
+  text-decoration: underline;
+}
+
 /* All jobs page */
 .jobs-card{
   width: 20vw;

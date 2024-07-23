@@ -11,7 +11,7 @@ export default class JobController {
   displayJobPosts(request, response, next) {
     console.log("Showing All job posts.");
     const jobs = JobModel.getAllJobs();
-    response.render("jobs", { jobs: jobs, usertype: null });
+    response.render("jobs", { jobs: jobs, usertype: request.session.usertype });
   }
 
   // to render job details
@@ -23,10 +23,13 @@ export default class JobController {
     if (jobDetails) {
       response.render("job-details", {
         jobDetails: jobDetails,
-        usertype: null,
+        usertype: request.session.usertype,
       });
     } else {
-      response.render("job-details", { jobDetails: null, usertype: null });
+      response.render("job-details", {
+        jobDetails: null,
+        usertype: request.session.usertype,
+      });
     }
   }
 
@@ -37,10 +40,13 @@ export default class JobController {
     if (jobDetails) {
       response.render("apply-form", {
         jobDetails: jobDetails,
-        usertype: null,
+        usertype: request.session.usertype,
       });
     } else {
-      response.render("apply-form", { jobDetails: null, usertype: null });
+      response.render("apply-form", {
+        jobDetails: null,
+        usertype: request.session.usertype,
+      });
     }
   }
 
@@ -83,7 +89,7 @@ export default class JobController {
     // rendering response
     response.render("applicationReceived", {
       jobDetails: jobDetails,
-      usertype: null,
+      usertype: request.session.usertype,
       applicantId: applicantId,
     });
   }
@@ -94,7 +100,7 @@ export default class JobController {
     let jobDetails = JobModel.getJobById(request.body.jobId);
     response.render("jobUpdateForm", {
       jobDetails: jobDetails,
-      usertype: null,
+      usertype: request.session.usertype,
     });
   }
 
@@ -104,7 +110,7 @@ export default class JobController {
     const status = JobModel.updateJobDetails(request.body);
     let jobDetails = JobModel.getJobById(request.body.jobId);
     response.render("jobUpdateResult", {
-      usertype: null,
+      usertype: request.session.usertype,
       jobDetails: jobDetails,
       status: status,
     });
@@ -113,6 +119,9 @@ export default class JobController {
   deleteJobPost(request, response, next) {
     console.log(`delete job post with - job id ${request.body.jobId}`);
     let status = JobModel.deleteJobById(request.body.jobId);
-    response.render("delete", { usertype: null, status: status });
+    response.render("delete", {
+      usertype: request.session.usertype,
+      status: status,
+    });
   }
 }

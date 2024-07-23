@@ -12,8 +12,10 @@ export default class GeneralController {
   rootHomePost(request, response) {
     // to receive the user choice for job seeker or recruiter and then
     // rendering user specific home page
-    const userType = request.body["radioInput"];
-    console.log(`Home Page for - ${userType}`);
-    response.render("home-" + userType, { usertype: userType });
+    request.session.usertype = request.body["radioInput"];
+    console.log(`Home Page for - ${request.session.usertype}`);
+    response.render("home-" + request.session.usertype, {
+      usertype: request.session.usertype,
+    });
   }
 }

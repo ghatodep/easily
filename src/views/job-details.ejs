@@ -49,7 +49,7 @@
       <td class="px-3 py-1">
         <div>
           <i class="fa-solid fa-indian-rupee-sign"></i>
-          <%= jobDetails.packageLimit %>
+          <%= jobDetails.packageLimit %> LPA
         </div>
       </td>
     </tr>
@@ -83,6 +83,7 @@
 
   <!-- job details buttons -->
   <div class="container d-flex justify-content-around my-3">
+    <% if(usertype=="job-seeker"){ %>
     <form action="/apply" method="post">
       <input
         type="text"
@@ -94,6 +95,7 @@
         <i class="fa-solid fa-user-pen mx-2"></i> Apply
       </button>
     </form>
+    <% }else{ %>
     <form action="/updateJobPostForm" method="post">
       <input
         type="text"
@@ -116,5 +118,6 @@
         <i class="fa-solid fa-trash mx-2"></i> Delete Post
       </button>
     </form>
+    <% } %>
   </div>
 </div>
