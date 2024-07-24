@@ -1,1 +1,28 @@
-Recruiter !
+<div class="container p-4 my-3">
+  <div>
+    <h1>Hi <%= userName %>,</h1>
+  </div>
+  <div class="d-flex my-3 flex-column flex-wrap" id="recruiter-menu">
+    <a href="/jobs" style="text-decoration: none">
+      <div class="card m-2 bg-dark">
+        <div class="card-body text-light">
+          <h4 class="card-title">Show All Jobs</h4>
+        </div>
+      </div>
+    </a>
+    <a href="/new-job" style="text-decoration: none">
+      <div class="card m-2 bg-dark">
+        <div class="card-body text-light">
+          <h4 class="card-title">Create New Job Posting</h4>
+        </div>
+      </div>
+    </a>
+    <a href="/logout" style="text-decoration: none">
+      <div class="card m-2 bg-dark">
+        <div class="card-body text-light">
+          <h4 class="card-title">Log Out</h4>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

@@ -14,8 +14,22 @@ export default class GeneralController {
     // rendering user specific home page
     request.session.usertype = request.body["radioInput"];
     console.log(`Home Page for - ${request.session.usertype}`);
-    response.render("home-" + request.session.usertype, {
-      usertype: request.session.usertype,
-    });
+    if (request.session.usertype == "job-seeker") {
+      response.redirect("/jobs");
+    } else {
+      response.redirect("/login");
+    }
+  }
+
+  getHome(request, response) {
+    // rendering home page
+    if (request.session.usertype == "job-seeker") {
+      response.redirect("/jobs");
+    } else {
+      response.render("home-recruiter", {
+        usertype: request.session.usertype,
+        userName: request.session.userName,
+      });
+    }
   }
 }

@@ -6,6 +6,7 @@ import ejsLayouts from "express-ejs-layouts";
 // importing internal modules - controllers
 import GeneralController from "./src/controllers/general.controller.js";
 import JobController from "./src/controllers/job.controller.js";
+import UserController from "./src/controllers/user.controller.js";
 
 // importing internal modules - middlewares
 import uploadFile from "./src/middlewares/uploadFile.middleware.js";
@@ -20,6 +21,7 @@ export const server = express();
 // creating instances of imported class modules
 const generalController = new GeneralController();
 const jobController = new JobController();
+const userController = new UserController();
 
 // application level middleware to host public files directly
 server.use(express.static(path.resolve("public")));
@@ -42,6 +44,9 @@ server.get("/", generalController.rootHomeRender);
 
 // post request for user specific home page
 server.post("/home", generalController.rootHomePost);
+
+// rendering home page
+server.get("/home", generalController.getHome);
 
 // render all jobs on the display
 server.get("/jobs", jobController.displayJobPosts);
@@ -71,3 +76,15 @@ server.post("/updateJobPost", authorize, jobController.updateJobPost);
 
 // render form to update the job posting
 server.post("/deletePost", authorize, jobController.deleteJobPost);
+
+// render registration form
+server.get("/register", userController.displayRegisterForm);
+
+// process register details
+server.post("/register", userController.registerRecruiter);
+
+// render login page
+server.get("/login", userController.displayLoginForm);
+
+// process login details
+server.post("/login", userController.loginRecruiter);

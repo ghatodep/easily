@@ -93,3 +93,9 @@ li a:hover{
 .job-details-header{
   font-size: 2.5rem;
 }
+
+/* recruiter menu on home page */
+#recruiter-menu a:hover{
+  background-color: white;
+  color: black;
+}

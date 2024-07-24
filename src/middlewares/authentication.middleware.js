@@ -10,9 +10,15 @@ export const sessionMiddleware = session({
 });
 
 export const authorize = (request, response, next) => {
-  if (request.session.usertype == "recruiter") {
-    next();
-  } else {
+  if (request.session.usertype == "job-seeker") {
     response.redirect("/jobs");
+  } else if (request.session.usertype == "recruiter") {
+    if (request.session.email) {
+      next();
+    } else {
+      response.redirect("/login");
+    }
+  } else {
+    response.redirect("/");
   }
 };

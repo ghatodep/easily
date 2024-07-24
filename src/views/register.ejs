@@ -1,0 +1,52 @@
+<div class="bg-dark border rounded text-light p-3 m-3">
+  <h1 class="modal-title fs-3 text-center">
+    <span
+      class="bg-white text-dark border mx-2 ps-1 py-1 fw-bolder"
+      style="font-family: cursive; border-radius: 10px"
+    >
+      easily
+    </span>
+    Registration Page
+  </h1>
+  <form action="/register" method="post" class="m-4">
+    <div class="mb-3">
+      <label for="userName" class="form-label">User Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="userName"
+        name="userName"
+        placeholder="Name"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="userEmail" class="form-label">User Email Address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="userEmail"
+        name="userEmail"
+        placeholder="Email"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="userPassword" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="userPassword"
+        name="userPassword"
+        placeholder="Password"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary my-2">Submit</button>
+    <div class="m-2">
+      <span class="fs-6">Already Registered ?</span>
+      <a class="btn btn-success" href="/login">Login</a>
+      <span>Now.</span>
+    </div>
+  </form>
+</div>

@@ -48,3 +48,8 @@ functionality to send a automated email response to applicants when they apply f
 session configuration for job seeker and recruiter.
 login as recruiter tab on job seeker nav panel.
 conditional buttons on detailed job post information page.
+
+## step - 9
+
+register and login page for recruiter users - usermodel and usercontroller.
+three tiles on recruiter home page - show all jobs and create a new job post and update registration.
