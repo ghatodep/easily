@@ -94,6 +94,26 @@ export default class JobController {
     });
   }
 
+  // render a form to create new job post
+  displayNewJobPostForm(request, response, next) {
+    console.log(`Display create new Job Post Form!`);
+    response.render("newJobPost", {
+      usertype: request.session.usertype,
+    });
+  }
+
+  // add new job post - data processing
+  createNewJobPost(request, response, next) {
+    console.log(`Job data to create new job -`);
+    console.log(request.body);
+    const status = JobModel.addNewJob(request.body);
+    const jobDetails = JobModel.getJobById(status);
+    response.render("newJobPostResult", {
+      jobDetails: jobDetails,
+      usertype: request.session.usertype,
+    });
+  }
+
   // render a form to update job post details
   displayUpdateJobForm(request, response, next) {
     console.log(`Display update Job Post Form - job id ${request.body.jobId}`);

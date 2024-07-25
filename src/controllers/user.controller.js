@@ -57,4 +57,14 @@ export default class UserController {
       userName: request.session.userName,
     });
   }
+
+  // process logout
+  logoutRecruiter(request, response, next) {
+    console.log(
+      `User ${request.session.userName} ~ ${request.session.email} has been logged out !`
+    );
+    request.session.usertype = null;
+    request.session.email = null;
+    response.redirect("/");
+  }
 }

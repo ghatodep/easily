@@ -64,6 +64,12 @@ server.post(
   jobController.processApplicationFormData
 );
 
+// render a form to create a new job posting
+server.get("/new-job", jobController.displayNewJobPostForm);
+
+// process new job data and create a new entry in job model database
+server.post("/new-job", jobController.createNewJobPost);
+
 // render form to update the job posting
 server.post(
   "/updateJobPostForm",
@@ -88,3 +94,6 @@ server.get("/login", userController.displayLoginForm);
 
 // process login details
 server.post("/login", userController.loginRecruiter);
+
+// process logout
+server.get("/logout", userController.logoutRecruiter);

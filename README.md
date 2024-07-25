@@ -53,3 +53,8 @@ conditional buttons on detailed job post information page.
 
 register and login page for recruiter users - usermodel and usercontroller.
 three tiles on recruiter home page - show all jobs and create a new job post and update registration.
+
+## step - 10
+
+functionality to create a new job post by recruiter.
+logout functionality.

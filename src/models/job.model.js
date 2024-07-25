@@ -29,6 +29,42 @@ export default class JobModel {
 
   static idGenerator = 1;
 
+  static addNewJob(_data) {
+    try {
+      const {
+        domain,
+        compName,
+        designation,
+        packageLimit,
+        skillRequired,
+        vacancy,
+        location,
+        closingDate,
+      } = _data;
+
+      const postedDate = new Date();
+
+      const newJob = new JobModel(
+        null,
+        compName,
+        domain,
+        designation,
+        packageLimit,
+        location,
+        skillRequired,
+        vacancy,
+        postedDate,
+        closingDate
+      );
+
+      jobs.push(newJob);
+      return newJob.id;
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  }
+
   static getAllJobs() {
     return jobs;
   }
