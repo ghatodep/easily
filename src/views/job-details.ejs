@@ -74,10 +74,25 @@
     </tr>
     <tr>
       <td class="px-3 py-1">Applicants Applied</td>
+      <% if(usertype=="job-seeker"){ %>
       <td class="px-3 py-1">
-        <i class="fa-solid fa-users mx-3"></i><%=
-        jobDetails.applicantList.length %>
+        <i class="fa-solid fa-users mx-3"></i>
+        <%= jobDetails.applicantList.length %>
       </td>
+      <% } if(usertype=="recruiter"){ %>
+      <td class="">
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn text-light"
+          data-bs-toggle="modal"
+          data-bs-target="#applicantList"
+        >
+          <i class="fa-solid fa-users mx-3"></i>
+          <%= jobDetails.applicantList.length %>
+        </button>
+      </td>
+      <% }%>
     </tr>
   </table>
 
@@ -91,7 +106,7 @@
         hidden
         name="jobId"
       />
-      <button class="btn btn-primary" type="submit">
+      <button class="btn btn-light" type="submit">
         <i class="fa-solid fa-user-pen mx-2"></i> Apply
       </button>
     </form>
@@ -103,7 +118,7 @@
         hidden
         name="jobId"
       />
-      <button class="btn btn-primary" type="submit">
+      <button class="btn btn-light" type="submit">
         <i class="fa-solid fa-pen-to-square mx-2"></i>Update Post
       </button>
     </form>
@@ -114,10 +129,80 @@
         hidden
         name="jobId"
       />
-      <button class="btn btn-primary" type="submit">
+      <button class="btn btn-light" type="submit">
         <i class="fa-solid fa-trash mx-2"></i> Delete Post
       </button>
     </form>
     <% } %>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="applicantList"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="applicantListLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h1 class="modal-title fs-5" id="applicantListLabel">
+          Applicants Applied to this Job Opening
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body bg-dark" style="overflow: scroll">
+        <!-- applicants list table -->
+        <table class="table table-dark table-hover table-bordered">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact Number</th>
+            <th>Current City</th>
+            <th>Education</th>
+            <th>Experience<br />(in months)</th>
+            <th>Resume</th>
+          </tr>
+          <% if(applicants){applicants.forEach((a, i)=>{ %>
+          <tr>
+            <td><%= i+1 %></td>
+            <td><%= a.applicantName %></td>
+            <td><%= a.applicantEmail %></td>
+            <td><%= a.applicantPhNum %></td>
+            <td><%= a.applicantCity %></td>
+            <td><%= a.applicantEducationLevel %></td>
+            <td><%= a.applicantExpDur %></td>
+            <td class="text-center">
+              <a
+                href="\uploadedfiles\<%= a.applicantResumePath %>"
+                style="text-decoration: none"
+                target="_blank"
+                ><i class="fa-solid fa-eye"></i
+              ></a>
+            </td>
+          </tr>
+          <% });} %>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary mx-auto"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+      </div>
+    </div>
   </div>
 </div>

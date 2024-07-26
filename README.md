@@ -58,3 +58,9 @@ three tiles on recruiter home page - show all jobs and create a new job post and
 
 functionality to create a new job post by recruiter.
 logout functionality.
+
+## step - 11
+
+seeing list of all applicants over a job.
+Add new applicant dummy data.
+Validation of incoming data.

@@ -20,15 +20,20 @@ export default class JobController {
       `Showing details of job opening with id - ${request.body.jobId}`
     );
     let jobDetails = JobModel.getJobById(request.body.jobId);
+    let applicantDetails = ApplicantModel.getApplicantsByJobId(
+      request.body.jobId
+    );
     if (jobDetails) {
       response.render("job-details", {
         jobDetails: jobDetails,
         usertype: request.session.usertype,
+        applicants: applicantDetails,
       });
     } else {
       response.render("job-details", {
         jobDetails: null,
         usertype: request.session.usertype,
+        applicants: null,
       });
     }
   }
@@ -41,11 +46,13 @@ export default class JobController {
       response.render("apply-form", {
         jobDetails: jobDetails,
         usertype: request.session.usertype,
+        error: null,
       });
     } else {
       response.render("apply-form", {
         jobDetails: null,
         usertype: request.session.usertype,
+        error: null,
       });
     }
   }
@@ -71,7 +78,7 @@ export default class JobController {
       request.body.applicantExpCompName,
       request.body.applicantExpDes,
       request.body.applicantExpDet,
-      request.file.path,
+      request.file.filename,
       request.body.jobId
     );
     let jobDetails = JobModel.getJobById(request.body.jobId);
@@ -145,3 +152,136 @@ export default class JobController {
     });
   }
 }
+
+function createDummyApplicantData() {
+  const data = [
+    [
+      "Shivani Prashant Dalal",
+      "vaniradhakrishna@gmail.com",
+      "8669065460",
+      "Nagpur",
+      "2001-02-21",
+      "FEMALE",
+      "MSW",
+      "78",
+      "SSC -> HSC Arts -> BSW -> MSW(Medicine)",
+      "9",
+      "Blind School Nagpur",
+      "Nurse Cum Caretaker",
+      "...",
+      "1721897246975_applicantResume_myResume.pdf",
+      "1",
+    ],
+    [
+      "Sunil Ghatode",
+      "ghatodesunil@gmail.com",
+      "9767464833",
+      "Nanded",
+      "1969-12-01",
+      "MALE",
+      "BA",
+      "78",
+      "Pursuing MA",
+      "60",
+      "Bhandari Finance, Nanded",
+      "Collection Agent",
+      "...",
+      "1721902985337_applicantResume_Resume_wl.pdf",
+      "1",
+    ],
+    [
+      "Swati Ghatode",
+      "ghatodeswati@gmail.com",
+      "8888589041",
+      "Nanded",
+      "1975-07-07",
+      "FEMALE",
+      "BA and LLB",
+      "79",
+      "Pursuing LLM",
+      "65",
+      "Bhumi Abhilekh, Loha, Nanded",
+      "Land Recorder",
+      "...",
+      "1721897246975_applicantResume_myResume.pdf",
+      "1",
+    ],
+    [
+      "Shivani Prashant Dalal",
+      "vaniradhakrishna@gmail.com",
+      "8669065460",
+      "Nagpur",
+      "2001-02-21",
+      "FEMALE",
+      "MSW",
+      "78",
+      "SSC -> HSC Arts -> BSW -> MSW(Medicine)",
+      "9",
+      "Blind School Nagpur",
+      "Nurse Cum Caretaker",
+      "...",
+      "1721897246975_applicantResume_myResume.pdf",
+      "1",
+    ],
+    [
+      "Sunil Ghatode",
+      "ghatodesunil@gmail.com",
+      "9767464833",
+      "Nanded",
+      "1969-12-01",
+      "MALE",
+      "BA",
+      "78",
+      "Pursuing MA",
+      "60",
+      "Bhandari Finance, Nanded",
+      "Collection Agent",
+      "...",
+      "1721897246975_applicantResume_myResume.pdf",
+      "1",
+    ],
+    [
+      "Swati Ghatode",
+      "ghatodeswati@gmail.com",
+      "8888589041",
+      "Nanded",
+      "1975-07-07",
+      "FEMALE",
+      "BA and LLB",
+      "79",
+      "Pursuing LLM",
+      "65",
+      "Bhumi Abhilekh, Loha, Nanded",
+      "Land Recorder",
+      "...",
+      "1721897246975_applicantResume_myResume.pdf",
+      "1",
+    ],
+  ];
+
+  data.forEach((d) => {
+    const applicantId = ApplicantModel.createNewApplicant(...d);
+    JobModel.addApplicantId(d[14], applicantId);
+    d[14] = 2;
+  });
+
+  data.forEach((d) => {
+    const applicantId = ApplicantModel.createNewApplicant(...d);
+    JobModel.addApplicantId(d[14], applicantId);
+    d[14] = 3;
+  });
+
+  data.forEach((d) => {
+    const applicantId = ApplicantModel.createNewApplicant(...d);
+    JobModel.addApplicantId(d[14], applicantId);
+    d[14] = 4;
+  });
+
+  data.forEach((d) => {
+    const applicantId = ApplicantModel.createNewApplicant(...d);
+    JobModel.addApplicantId(d[14], applicantId);
+  });
+  console.log("dummy data added!");
+}
+
+createDummyApplicantData();

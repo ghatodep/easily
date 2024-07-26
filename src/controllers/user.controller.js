@@ -65,6 +65,12 @@ export default class UserController {
     );
     request.session.usertype = null;
     request.session.email = null;
-    response.redirect("/");
+    request.session.destroy((err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        response.redirect("/");
+      }
+    });
   }
 }

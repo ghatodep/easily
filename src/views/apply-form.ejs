@@ -12,6 +12,11 @@
       at
       <span class="text-primary"><%= locals.jobDetails.compName %></span>
     </h1>
+    <div class="fw-semibold text-center mx-auto" style="width: 50%">
+      <% if(error){ %>
+      <div class="alert alert-danger" role="alert"><%= error %></div>
+      <%}%>
+    </div>
     <div class="my-3">
       <div class="fw-bolder fs-5 my-2 text-center">
         <i class="fa-regular fa-id-badge m-2"></i>Personal Details

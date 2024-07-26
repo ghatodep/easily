@@ -14,6 +14,7 @@ import {
   sessionMiddleware,
   authorize,
 } from "./src/middlewares/authentication.middleware.js";
+import ValidationMiddleware from "./src/middlewares/validation.middleware.js";
 
 // creating a server
 export const server = express();
@@ -61,6 +62,7 @@ server.post("/apply", jobController.displayApplicationForm);
 server.post(
   "/formSubmit",
   uploadFile.single("applicantResume"),
+  ValidationMiddleware.validateApplicationData,
   jobController.processApplicationFormData
 );
 
